@@ -87,6 +87,29 @@ namespace application
                         Url = new Uri("https://github.com/wslmacieira")
                     }
                 });
+
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    Description = "Entre com o token JWY",
+                    Name = "Authorization",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.ApiKey
+                });
+
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                            {
+                                Reference = new OpenApiReference
+                                {
+                                    Id =  "Bearer",
+                                    Type = ReferenceType.SecurityScheme
+                                }
+                            },
+                        new List<string>()
+                    }
+                });
             });
 
             services.AddControllers();

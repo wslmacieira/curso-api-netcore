@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "DfMIwH7aYmcZi2C4tltKRwLYq8HefWQpv66r+lICui/qGeQmUuh5c2vTz0FppFt6EK1Akvmt8IQLP8FwpLNOHQ==",
+  "dgSpecHash": "e4YIGYY0c5U8f9tBSuaImvz6s//a2CJtDgggaR2jnAdfGsLE9hUBnYCXO7sCIbSZor6/TIz4Sm/jPHAG1H+lew==",
   "success": true,
   "projectFilePath": "d:\\Workspace\\Udemy\\ArquiteturaDDDAspNetCore3.1\\CursoApiNetcore\\src\\Api.Data.Test\\Api.Data.Test.csproj",
   "expectedPackageFiles": [

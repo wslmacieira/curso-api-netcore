@@ -12,3 +12,5 @@
 /Api.Domain/obj
 /Api.Service/bin
 /Api.Service/obj
+/Api.Service.Test/bin
+/Api.Service.Test/obj

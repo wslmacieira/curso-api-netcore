@@ -3,15 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "application", "src/Api.Application\application.csproj", "{4FCB3964-F8D2-47BC-AF48-5DB7858EF3E9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "application", "src\Api.Application\application.csproj", "{4FCB3964-F8D2-47BC-AF48-5DB7858EF3E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "src/Api.Domain\Domain.csproj", "{11859B8C-B419-4FD0-9C5D-2C42114A69EC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "src\Api.Domain\Domain.csproj", "{11859B8C-B419-4FD0-9C5D-2C42114A69EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossCutting", "src/Api.CrossCutting\CrossCutting.csproj", "{44E58E6F-DE15-4E46-AAB7-59566B4B15CF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossCutting", "src\Api.CrossCutting\CrossCutting.csproj", "{44E58E6F-DE15-4E46-AAB7-59566B4B15CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "src/Api.Data\Data.csproj", "{3FE1A7E1-014B-4514-AE76-161CC926CE4A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "src\Api.Data\Data.csproj", "{3FE1A7E1-014B-4514-AE76-161CC926CE4A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "src/Api.Service\Service.csproj", "{4C32798D-D1A8-4404-9521-390E8E0A326B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "src\Api.Service\Service.csproj", "{4C32798D-D1A8-4404-9521-390E8E0A326B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{EA96973D-1C73-4828-9653-1E84B15A5BB6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.Data.Test", "src\Api.Data.Test\Api.Data.Test.csproj", "{13DA3595-B9C9-48E8-833F-BB416CE0D03C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -86,5 +90,20 @@ Global
 		{4C32798D-D1A8-4404-9521-390E8E0A326B}.Release|x64.Build.0 = Release|Any CPU
 		{4C32798D-D1A8-4404-9521-390E8E0A326B}.Release|x86.ActiveCfg = Release|Any CPU
 		{4C32798D-D1A8-4404-9521-390E8E0A326B}.Release|x86.Build.0 = Release|Any CPU
+		{13DA3595-B9C9-48E8-833F-BB416CE0D03C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13DA3595-B9C9-48E8-833F-BB416CE0D03C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13DA3595-B9C9-48E8-833F-BB416CE0D03C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{13DA3595-B9C9-48E8-833F-BB416CE0D03C}.Debug|x64.Build.0 = Debug|Any CPU
+		{13DA3595-B9C9-48E8-833F-BB416CE0D03C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{13DA3595-B9C9-48E8-833F-BB416CE0D03C}.Debug|x86.Build.0 = Debug|Any CPU
+		{13DA3595-B9C9-48E8-833F-BB416CE0D03C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13DA3595-B9C9-48E8-833F-BB416CE0D03C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13DA3595-B9C9-48E8-833F-BB416CE0D03C}.Release|x64.ActiveCfg = Release|Any CPU
+		{13DA3595-B9C9-48E8-833F-BB416CE0D03C}.Release|x64.Build.0 = Release|Any CPU
+		{13DA3595-B9C9-48E8-833F-BB416CE0D03C}.Release|x86.ActiveCfg = Release|Any CPU
+		{13DA3595-B9C9-48E8-833F-BB416CE0D03C}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{13DA3595-B9C9-48E8-833F-BB416CE0D03C} = {EA96973D-1C73-4828-9653-1E84B15A5BB6}
 	EndGlobalSection
 EndGlobal

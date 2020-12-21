@@ -16,7 +16,8 @@ namespace src.Api.CrossCutting.DependencyInjection
             serviceCollection.AddScoped<IUserRepository, UserImplementation>();
 
             serviceCollection.AddDbContext<Mycontext>(
-              options => options.UseMySql("Server=localhost;Port=3306;Database=dbAPI;Uid=root;Pwd=gostack")
+              //options => options.UseMySql("Server=localhost;Port=3306;Database=dbAPI;Uid=root;Pwd=gostack")
+              options => options.UseSqlServer("Data source=(localdb)\\mssqllocaldb;Initial Catalog=CursoApiNetcore;Integrated Security=true")
               );
         }
     }

@@ -1,3 +1,4 @@
+using System;
 using Api.Data.Context;
 using Api.Data.Implementations;
 using Api.Domain.Repository;
@@ -15,10 +16,20 @@ namespace src.Api.CrossCutting.DependencyInjection
             serviceCollection.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
             serviceCollection.AddScoped<IUserRepository, UserImplementation>();
 
-            serviceCollection.AddDbContext<Mycontext>(
-              //options => options.UseMySql("Server=localhost;Port=3306;Database=dbAPI;Uid=root;Pwd=gostack")
-              options => options.UseSqlServer("Data source=(localdb)\\mssqllocaldb;Initial Catalog=CursoApiNetcore;Integrated Security=true")
-              );
+            if (Environment.GetEnvironmentVariable("DATABASE").ToLower() == "SQLSERVER".ToLower())
+            {
+                serviceCollection.AddDbContext<Mycontext>(
+                options => options.UseSqlServer("Data source=(localdb)\\mssqllocaldb;Initial Catalog=CursoApiNetcore;Integrated Security=true")
+                );
+            }
+            else
+            {
+                serviceCollection.AddDbContext<Mycontext>(
+                options => options.UseMySql(Environment.GetEnvironmentVariable("DB_CONNECTION"))
+                );
+            }
+
+
         }
     }
 }

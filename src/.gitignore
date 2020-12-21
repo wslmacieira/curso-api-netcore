@@ -5,6 +5,8 @@
 /Api.CrossCutting/bin
 /Api.CrossCutting/obj
 /Api.Data/bin
+/Api.Data.Test/obj
+/Api.Data.Test/bin
 /Api.Data/obj
 /Api.Domain/bin
 /Api.Domain/obj

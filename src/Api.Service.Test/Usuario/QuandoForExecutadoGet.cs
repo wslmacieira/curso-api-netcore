@@ -1,4 +1,6 @@
+using System;
 using System.Threading.Tasks;
+using Api.Domain.Dtos.User;
 using Moq;
 using src.Api.Domain.Interfaces.Services.User;
 using Xunit;
@@ -22,10 +24,20 @@ namespace Api.Service.Test.Usuario
             //When
             var result = await _service.Get(IdUsuario);
 
+
             //Then
             Assert.NotNull(result);
             Assert.True(result.Id == IdUsuario);
             Assert.Equal(NomeUsuario, result.Name);
+
+
+            _serviceMock = new Mock<IUserService>();
+            _serviceMock.Setup(m => m.Get(It.IsAny<Guid>())).Returns(Task.FromResult((UserDto)null));
+            _service = _serviceMock.Object;
+
+            var _record = await _service.Get(IdUsuario);
+
+            Assert.Null(_record);
         }
     }
 }

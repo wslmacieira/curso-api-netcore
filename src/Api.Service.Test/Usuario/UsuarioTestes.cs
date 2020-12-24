@@ -12,7 +12,7 @@ namespace Api.Service.Test.Usuario
         public static string EmailUsuarioAlterado { get; set; }
         public Guid IdUsuario { get; set; }
 
-        public List<UserDto> listUserDto { get; set; }
+        public List<UserDto> listUserDto = new List<UserDto>();
         public UserDto userDto = new UserDto();
         public UserDtoCreate userDtoCreate;
         public UserDtoCreateResult userDtoCreateResult;

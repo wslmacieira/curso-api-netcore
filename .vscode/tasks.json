@@ -44,7 +44,7 @@
             "type": "process",
             "args": [
                 "test",
-                "${workspaceFolder}/src/Api.Data.Test/Api.Data.Test.csproj",
+                "${workspaceFolder}/test/Api.Data.Test/Api.Data.Test.csproj",
             ],
         },
         {
@@ -53,7 +53,16 @@
             "type": "process",
             "args": [
                 "test",
-                "${workspaceFolder}/src/Api.Service.Test/Api.Service.Test.csproj",
+                "${workspaceFolder}/test/Api.Service.Test/Api.Service.Test.csproj",
+            ],
+        },
+        {
+            "label": "Application.Testes",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "test",
+                "${workspaceFolder}/test/Api.Application.Test/Api.Application.Test.csproj",
             ],
         }
     ]

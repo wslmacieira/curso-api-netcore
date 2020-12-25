@@ -5,8 +5,6 @@ src/Api.Application/obj
 src/Api.CrossCutting/bin
 src/Api.CrossCutting/obj
 src/Api.Data/bin
-src/Api.Data.Test/obj
-src/Api.Data.Test/bin
 src/Api.Data/obj
 src/Api.Domain/bin
 src/Api.Domain/obj
@@ -16,3 +14,5 @@ test/Api.Service.Test/bin
 test/Api.Service.Test/obj
 test/Api.Application.Test/bin
 test/Api.Application.Test/obj
+test/Api.Data.Test/obj
+test/Api.Data.Test/bin

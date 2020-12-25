@@ -5,7 +5,7 @@ namespace Api.Domain.Models
     public class UserModel
     {
         private Guid _id;
-        public Guid id
+        public Guid Id
         {
             get { return _id; }
             set { _id = value; }
@@ -26,11 +26,11 @@ namespace Api.Domain.Models
             set { _email = value; }
         }
 
-        private DateTime _creatAt;
-        public DateTime CreatAt
+        private DateTime _createAt;
+        public DateTime CreateAt
         {
-            get { return _creatAt; }
-            set { _creatAt = value == null ? DateTime.UtcNow : value; }
+            get { return _createAt; }
+            set { _createAt = value == null ? DateTime.UtcNow : value; }
         }
 
         private DateTime _updateAt;

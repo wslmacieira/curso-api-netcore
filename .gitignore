@@ -16,4 +16,6 @@ test/Api.Application.Test/bin
 test/Api.Application.Test/obj
 test/Api.Data.Test/obj
 test/Api.Data.Test/bin
+test/Api.Integration.Test/obj
+test/Api.Integration.Test/bin
 .vscode/solution-explorer

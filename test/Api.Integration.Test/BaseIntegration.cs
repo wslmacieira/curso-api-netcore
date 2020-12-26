@@ -24,7 +24,7 @@ namespace Api.Integration.Test
 
         public BaseIntegration()
         {
-            hostApi = "http://localhost:5000/api";
+            hostApi = "http://localhost:5000/api/";
             var builder = new WebHostBuilder()
                 .UseEnvironment("Testing")
                 .UseStartup<Startup>();
@@ -45,7 +45,7 @@ namespace Api.Integration.Test
                 Email = "wslmacieira@gmail.com"
             };
 
-            var resultLogin = await PostJsonAsync(loginDto, $"{hostApi}/login", client);
+            var resultLogin = await PostJsonAsync(loginDto, $"{hostApi}login", client);
             var jsonLogin = await resultLogin.Content.ReadAsStringAsync();
             var loginObject = JsonConvert.DeserializeObject<LoginResponseDto>(jsonLogin);
 

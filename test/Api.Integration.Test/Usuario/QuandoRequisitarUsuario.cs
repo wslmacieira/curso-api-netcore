@@ -40,7 +40,7 @@ namespace Api.Integration.Test.Usuario
             Assert.Equal(_email, registroPost.Email);
             Assert.True(registroPost.Id != default(Guid));
 
-            // GEt All
+            // Get All
             response = await client.GetAsync($"{hostApi}users");
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
@@ -57,6 +57,7 @@ namespace Api.Integration.Test.Usuario
                 Email = Faker.Internet.Email()
             };
 
+            // Put
             var stringContent = new StringContent(JsonConvert.SerializeObject(updateUserDto),
                 Encoding.UTF8, "application/json");
 
@@ -67,6 +68,8 @@ namespace Api.Integration.Test.Usuario
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
             Assert.NotEqual(registroPost.Name, registroAtualizado.Name);
             Assert.NotEqual(registroPost.Email, registroAtualizado.Email);
+
+            // Get Id
         }
     }
 }

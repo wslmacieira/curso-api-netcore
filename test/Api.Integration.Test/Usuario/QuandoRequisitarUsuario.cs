@@ -77,6 +77,15 @@ namespace Api.Integration.Test.Usuario
             var registroSelecionado = JsonConvert.DeserializeObject<UserDto>(jsonResult);
             Assert.NotNull(registroSelecionado);
             Assert.Equal(registroSelecionado.Name, registroAtualizado.Name);
+
+            // Delete
+
+            response = await client.DeleteAsync($"{hostApi}users/{registroSelecionado.Id}");
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+
+            // GET ID depois do Delete
+            response = await client.GetAsync($"{hostApi}users/{registroAtualizado.Id}");
+            Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
         }
     }
 }

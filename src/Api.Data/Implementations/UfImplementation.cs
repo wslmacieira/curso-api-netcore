@@ -11,7 +11,7 @@ namespace Data.Implementations
     {
         private DbSet<UfEntity> _dataset;
 
-        public UfImplementation(Mycontext context) : base(context)
+        public UfImplementation(MyContext context) : base(context)
         {
             _dataset = context.Set<UfEntity>();
         }

@@ -16,7 +16,7 @@ namespace Api.Integration.Test
 {
     public abstract class BaseIntegration : IDisposable
     {
-        public Mycontext myContext { get; private set; }
+        public MyContext myContext { get; private set; }
         public HttpClient client { get; private set; }
         public IMapper mapper { get; set; }
         public string hostApi { get; set; }
@@ -30,7 +30,7 @@ namespace Api.Integration.Test
                 .UseStartup<Startup>();
             var server = new TestServer(builder);
 
-            myContext = server.Host.Services.GetService(typeof(Mycontext)) as Mycontext;
+            myContext = server.Host.Services.GetService(typeof(MyContext)) as MyContext;
             myContext.Database.Migrate();
 
             mapper = new AutoMapperFixture().GetMapper();

@@ -22,7 +22,7 @@ namespace Api.Data.Test
         [Trait("GETs", "UfEntity")]
         public async Task E_Possivel_Realizar_Gets_UF()
         {
-            using (var context = _serviceProvider.GetService<Mycontext>())
+            using (var context = _serviceProvider.GetService<MyContext>())
             {
                 UfImplementation _repository = new UfImplementation(context);
                 UfEntity _entity = new UfEntity

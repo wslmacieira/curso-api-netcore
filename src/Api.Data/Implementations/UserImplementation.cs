@@ -11,7 +11,7 @@ namespace Api.Data.Implementations
     {
         private DbSet<UserEntity> _dataset;
 
-        public UserImplementation(Mycontext context) : base(context)
+        public UserImplementation(MyContext context) : base(context)
         {
             _dataset = context.Set<UserEntity>();
         }

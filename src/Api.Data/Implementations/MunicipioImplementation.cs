@@ -12,7 +12,7 @@ namespace Data.Implementations
     {
         private DbSet<MunicipioEntity> _dataset;
 
-        public MunicipioImplementation(Mycontext context) : base(context)
+        public MunicipioImplementation(MyContext context) : base(context)
         {
             _dataset = context.Set<MunicipioEntity>();
         }

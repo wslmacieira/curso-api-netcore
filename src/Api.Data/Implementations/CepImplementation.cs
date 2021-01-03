@@ -12,7 +12,7 @@ namespace Data.Implementations
     {
         private DbSet<CepEntity> _dataset;
 
-        public CepImplementation(Mycontext context) : base(context)
+        public CepImplementation(MyContext context) : base(context)
         {
             _dataset = context.Set<CepEntity>();
         }

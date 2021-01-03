@@ -18,13 +18,13 @@ namespace src.Api.CrossCutting.DependencyInjection
 
             if (Environment.GetEnvironmentVariable("DATABASE").ToLower() == "SQLSERVER".ToLower())
             {
-                serviceCollection.AddDbContext<Mycontext>(
+                serviceCollection.AddDbContext<MyContext>(
                 options => options.UseSqlServer("Data source=(localdb)\\mssqllocaldb;Initial Catalog=CursoApiNetcore;Integrated Security=true")
                 );
             }
             else
             {
-                serviceCollection.AddDbContext<Mycontext>(
+                serviceCollection.AddDbContext<MyContext>(
                 options => options.UseMySql(Environment.GetEnvironmentVariable("DB_CONNECTION"))
                 );
             }

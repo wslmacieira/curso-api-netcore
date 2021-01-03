@@ -21,7 +21,7 @@ namespace Api.Data.Test
         [Trait("CRUD", "UserEntity")]
         public async Task E_Possivel_realizar_CRUD_USUARIO()
         {
-            using (var context = _serviceProvider.GetService<Mycontext>())
+            using (var context = _serviceProvider.GetService<MyContext>())
             {
                 UserImplementation _repository = new UserImplementation(context);
                 UserEntity _entity = new UserEntity

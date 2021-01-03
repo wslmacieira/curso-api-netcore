@@ -70,6 +70,13 @@ namespace Api.Integration.Test.Usuario
             Assert.NotEqual(registroPost.Email, registroAtualizado.Email);
 
             // Get Id
+            response = await client.GetAsync($"{hostApi}users/{registroAtualizado.Id}");
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+
+            jsonResult = await response.Content.ReadAsStringAsync();
+            var registroSelecionado = JsonConvert.DeserializeObject<UserDto>(jsonResult);
+            Assert.NotNull(registroSelecionado);
+            Assert.Equal(registroSelecionado.Name, registroAtualizado.Name);
         }
     }
 }

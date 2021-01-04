@@ -19,7 +19,7 @@ namespace Service.Services
             _mapper = mapper;
         }
 
-        public async Task<UfDto> GetTask(Guid id)
+        public async Task<UfDto> Get(Guid id)
         {
             var entity = await _repository.SelectAsync(id);
             return _mapper.Map<UfDto>(entity);

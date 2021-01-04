@@ -18,6 +18,9 @@ namespace Api.CrossCutting.Mappings
 
             CreateMap<CepModel, CepEntity>()
                 .ReverseMap();
+
+            CreateMap<UfModel, UfEntity>()
+           .ReverseMap();
         }
     }
 }

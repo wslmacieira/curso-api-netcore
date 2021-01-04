@@ -1,8 +1,8 @@
 using System;
 using System.Net;
 using System.Threading.Tasks;
-using Domain.Dtos.Municipio;
-using Domain.Interfaces.Services.Municipio;
+using Domain.Dtos.Cep;
+using Domain.Interfaces.Services.Cep;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,38 +10,18 @@ namespace application.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class MunicipiosController : ControllerBase
+    public class CepsController : ControllerBase
     {
-        public IMunicipioService _service { get; set; }
+        public ICepService _service;
 
-        public MunicipiosController(IMunicipioService service)
+        public CepsController(ICepService service)
         {
             _service = service;
         }
 
         [Authorize("Bearer")]
         [HttpGet]
-        public async Task<ActionResult> GetAll()
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            try
-            {
-                return Ok(await _service.GetAll());
-            }
-            catch (ArgumentException e)
-            {
-
-                return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
-            }
-        }
-
-        [Authorize("Bearer")]
-        [HttpGet]
-        [Route("{id}")]
+        [Route("{id}", Name = "GetCepWithId")]
         public async Task<ActionResult> Get(Guid id)
         {
             if (!ModelState.IsValid)
@@ -61,14 +41,15 @@ namespace application.Controllers
             }
             catch (ArgumentException e)
             {
+
                 return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
             }
         }
 
         [Authorize("Bearer")]
         [HttpGet]
-        [Route("complete/{id}", Name = "GetMunicipioWithId")]
-        public async Task<ActionResult> GetCompleteById(Guid id)
+        [Route("byCep/{cep}")]
+        public async Task<ActionResult> Get(string cep)
         {
             if (!ModelState.IsValid)
             {
@@ -77,7 +58,7 @@ namespace application.Controllers
 
             try
             {
-                var result = await _service.GetCompleteById(id);
+                var result = await _service.Get(cep);
                 if (result == null)
                 {
                     return NotFound();
@@ -87,39 +68,14 @@ namespace application.Controllers
             }
             catch (ArgumentException e)
             {
-                return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
-            }
-        }
 
-        [Authorize("Bearer")]
-        [HttpGet]
-        [Route("byIBGE/{codigoIBGE}")]
-        public async Task<ActionResult> GetCompleteByIBGE(int codigoIBGE)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            try
-            {
-                var result = await _service.GetCompleteByIBGE(codigoIBGE);
-                if (result == null)
-                {
-                    return NotFound();
-                }
-
-                return Ok(result);
-            }
-            catch (ArgumentException e)
-            {
                 return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
             }
         }
 
         [Authorize("Bearer")]
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] MunicipioDtoCreate dtoCreate)
+        public async Task<ActionResult> Post([FromBody] CepDtoCreate dtoCreate)
         {
             if (!ModelState.IsValid)
             {
@@ -134,7 +90,7 @@ namespace application.Controllers
                     return BadRequest();
                 }
 
-                return Created(new Uri(Url.Link("GetMunicipioWithId", new { id = result.Id })), result);
+                return Created(new Uri(Url.Link("GetCepWithId", new { id = result.Id })), result);
             }
             catch (ArgumentException e)
             {
@@ -144,7 +100,7 @@ namespace application.Controllers
 
         [Authorize("Bearer")]
         [HttpPut]
-        public async Task<ActionResult> Put([FromBody] MunicipioDtoUpdate dtoUpdate)
+        public async Task<ActionResult> Put([FromBody] CepDtoUpdate dtoUpdate)
         {
             if (!ModelState.IsValid)
             {
@@ -160,6 +116,25 @@ namespace application.Controllers
                 }
 
                 return Ok(result);
+            }
+            catch (ArgumentException e)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
+            }
+        }
+
+        [Authorize("Bearer")]
+        [HttpDelete]
+        public async Task<ActionResult> Delete(Guid id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            try
+            {
+                return Ok(await _service.Delete(id));
             }
             catch (ArgumentException e)
             {

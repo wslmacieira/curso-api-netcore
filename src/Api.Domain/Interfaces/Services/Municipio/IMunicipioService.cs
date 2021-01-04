@@ -7,7 +7,7 @@ namespace Domain.Interfaces.Services.Municipio
 {
     public interface IMunicipioService
     {
-        Task<MunicipioDto> GetTask(Guid id);
+        Task<MunicipioDto> Get(Guid id);
         Task<MunicipioDtoCompleto> GetCompleteById(Guid id);
         Task<MunicipioDtoCompleto> GetCompleteByIBGE(int codIBGE);
         Task<IEnumerable<MunicipioDto>> GetAll();

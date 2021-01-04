@@ -21,7 +21,7 @@ namespace Service.Services
             _mapper = mapper;
         }
 
-        public async Task<MunicipioDto> GetTask(Guid id)
+        public async Task<MunicipioDto> Get(Guid id)
         {
             var entity = await _repository.SelectAsync(id);
             return _mapper.Map<MunicipioDto>(entity);

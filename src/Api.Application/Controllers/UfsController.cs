@@ -50,7 +50,12 @@ namespace application.Controllers
 
             try
             {
-                return Ok(await _service.Get(id));
+                var result = await _service.Get(id);
+                if (result == null)
+                {
+                    NotFound();
+                }
+                return Ok(result);
             }
             catch (ArgumentException e)
             {

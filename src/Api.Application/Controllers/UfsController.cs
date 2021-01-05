@@ -53,7 +53,7 @@ namespace application.Controllers
                 var result = await _service.Get(id);
                 if (result == null)
                 {
-                    NotFound();
+                    return NotFound();
                 }
                 return Ok(result);
             }

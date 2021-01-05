@@ -46,7 +46,7 @@ namespace application.Controllers
             }
         }
 
-        [Authorize("Bearer")]
+        [AllowAnonymous]
         [HttpGet]
         [Route("byCep/{cep}")]
         public async Task<ActionResult> Get(string cep)

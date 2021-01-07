@@ -7,17 +7,17 @@ using Microsoft.AspNetCore.Mvc;
 using Moq;
 using Xunit;
 
-namespace Api.Application.Test.Municipio.QuandoRequisitarGetCompleteByIBGE
+namespace Api.Application.Test.Municipio.QuandoRequisitarGetCompleteById
 {
     public class RetornoOk
     {
         private MunicipiosController _controller;
 
-        [Fact(DisplayName = "É possível Realizar o gGetCompleteByIBGE")]
-        public async Task E_Possivel_Invocar_a_Controller_GetCompleteByIBGE()
+        [Fact(DisplayName = "É possível Realizar o gGetCompleteById")]
+        public async Task E_Possivel_Invocar_a_Controller_GetCompleteById()
         {
             var serviceMock = new Mock<IMunicipioService>();
-            serviceMock.Setup(m => m.GetCompleteByIBGE(It.IsAny<int>())).ReturnsAsync(
+            serviceMock.Setup(m => m.GetCompleteById(It.IsAny<Guid>())).ReturnsAsync(
                 new MunicipioDtoCompleto
                 {
                     Id = Guid.NewGuid(),
@@ -27,7 +27,7 @@ namespace Api.Application.Test.Municipio.QuandoRequisitarGetCompleteByIBGE
 
             _controller = new MunicipiosController(serviceMock.Object);
 
-            var result = await _controller.GetCompleteByIBGE(1);
+            var result = await _controller.GetCompleteById(Guid.NewGuid());
             Assert.True(result is OkObjectResult);
         }
     }
